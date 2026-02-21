@@ -21,7 +21,7 @@ MOHID 수치모델이 출력한 NetCDF 파일 두 종류를 사용합니다:
 - **Hydrodynamic** (`L2_Hydrodynamic_*.nc`): 유속(`u`, `v`), 해수면 높이(`ssh`)
 - **WaterProperties** (`L2_WaterProperties_*.nc`): 수온(`temperature`), 염분(`salinity`)
 
-두 파일 모두 동일한 정규 격자(712 x 720, 위도 28.68~43.49, 경도 117.51~132.49)를 가집니다.
+두 파일 모두 동일한 정규 격자(712 x 720, 위도 28.68 - 43.49, 경도 117.51 - 132.49)를 가집니다.
 
 ### 2. 웹 맵 타일 좌표 매핑
 
@@ -71,7 +71,7 @@ tile_y = floor((1 - log(tan(lat) + sec(lat)) / pi) / 2 * 2^zoom)
 FastAPI 기반 타일 서버입니다.
 
 - **엔드포인트**: `GET /tiles/{dataset}/{z}/{x}/{y}.json`
-- **줌 매핑**: 실제 타일이 존재하지 않는 높은 줌 레벨(11~13)은 비트 시프트로 zoom 10 타일 좌표로 매핑하여 응답합니다.
+- **줌 매핑**: 실제 타일이 존재하지 않는 높은 줌 레벨(11-13)은 비트 시프트로 zoom 10 타일 좌표로 매핑하여 응답합니다.
 
   ```
   actual_x = x >> (z - actual_z)
